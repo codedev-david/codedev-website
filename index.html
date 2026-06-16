@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4f5fc">
   <title>David Engelhart — DevOps &amp; Cloud Engineer · Educator | codedev</title>
   <meta
     name="description"
@@ -64,10 +66,19 @@
   </noscript>
 </head>
 <body>
+  <!-- Drifting aurora background + cursor-follow spotlight (pure decoration) -->
+  <div class="aurora" aria-hidden="true">
+    <span class="a1"></span>
+    <span class="a2"></span>
+    <span class="a3"></span>
+  </div>
+  <div class="spotlight" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
   <div class="page-shell">
     <header class="site-header">
       <a class="brand" href="#top" aria-label="codedev home">
-        <img class="brand-logo" src="logo-codedev.svg" alt="codedev logo" width="48" height="48">
+        <img class="brand-logo" src="logo-codedev.svg" alt="codedev logo" width="44" height="44">
         <span class="brand-text">codedev</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
@@ -81,37 +92,31 @@
 
     <main id="top">
       <section class="hero reveal">
-        <div class="hero-copy">
-          <p class="eyebrow">DevOps &amp; Cloud Engineer · Educator · Builder</p>
-          <h1>David<br>Engelhart</h1>
-          <p class="tagline">Cloud and DevOps engineer who spent a career teaching — now I build the pipelines and coach the teams that run them.</p>
-          <ul class="fact-pills" aria-label="Highlights">
-            <li>💻 Senior / Staff DevOps &amp; Cloud</li>
-            <li>☁️ AWS · Azure · IaC · CI/CD</li>
-            <li>🧑‍🏫 8 yrs teaching CS (AP · IB)</li>
-            <li>📖 Author, “Terraform to Bicep”</li>
-            <li>⚙️ Creator of Termpolis</li>
-          </ul>
-          <p class="hero-text">
-            I’m a Senior and Staff-level DevOps and Cloud Engineer with an unusual path: eight years
-            teaching Computer Science, eight years building software, and — since 2018 — designing and
-            running cloud infrastructure on AWS and Azure. I never really stopped teaching; these days
-            it’s engineers, through DevOps coaching, a book on Azure infrastructure as code, and the
-            tools I build.
-          </p>
-          <div class="hero-actions">
-            <a class="button" href="https://www.linkedin.com/in/david-engelhart-659701304/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
-            <a class="button button-secondary" href="https://termpolis.com" target="_blank" rel="noreferrer">See Termpolis</a>
-            <a class="button button-secondary" href="https://www.amazon.com/Terraform-Bicep-Comparative-Approach-Infrastructure/dp/B0H2BNMWWY" target="_blank" rel="noreferrer">Get the book</a>
-          </div>
+        <div class="avatar-ring">
+          <img src="assets/avatar.png" alt="Illustrated portrait of David Engelhart" width="388" height="282">
         </div>
-        <div class="hero-visual">
-          <span class="orb orb-coral" aria-hidden="true"></span>
-          <span class="orb orb-gold" aria-hidden="true"></span>
-          <div class="avatar-ring">
-            <img src="assets/avatar.png" alt="Illustrated portrait of David Engelhart" width="388" height="282">
-          </div>
+        <p class="eyebrow">DevOps &amp; Cloud Engineer · Educator · Builder</p>
+        <h1><span class="name-grad">David Engelhart</span></h1>
+        <p class="tagline">Cloud and DevOps engineer who spent a career teaching — now I build the pipelines and coach the teams that run them.</p>
+        <ul class="fact-pills" aria-label="Highlights">
+          <li>💻 Senior / Staff DevOps &amp; Cloud</li>
+          <li>☁️ AWS · Azure · IaC · CI/CD</li>
+          <li>🧑‍🏫 8 yrs teaching CS (AP · IB)</li>
+          <li>📖 Author, “Terraform to Bicep”</li>
+          <li>⚙️ Creator of Termpolis</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="button" href="https://www.linkedin.com/in/david-engelhart-659701304/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+          <a class="button button-secondary" href="https://termpolis.com" target="_blank" rel="noreferrer">See Termpolis</a>
+          <a class="button button-secondary" href="https://www.amazon.com/Terraform-Bicep-Comparative-Approach-Infrastructure/dp/B0H2BNMWWY" target="_blank" rel="noreferrer">Get the book</a>
         </div>
+        <p class="hero-text">
+          I’m a Senior and Staff-level DevOps and Cloud Engineer with an unusual path: eight years
+          teaching Computer Science, eight years building software, and — since 2018 — designing and
+          running cloud infrastructure on AWS and Azure. I never really stopped teaching; these days
+          it’s engineers, through DevOps coaching, a book on Azure infrastructure as code, and the
+          tools I build.
+        </p>
       </section>
 
       <section id="about" class="section reveal">
@@ -135,7 +140,7 @@
               <em>Terraform to Bicep</em> and the creator of <em>Termpolis</em>.
             </p>
           </div>
-          <div class="skills-card">
+          <aside class="skills-card">
             <p class="skills-label">What I work with</p>
             <ul class="skill-chips" aria-label="Core skills">
               <li>AWS</li>
@@ -148,7 +153,7 @@
               <li>Cloud architecture</li>
               <li>DevOps coaching</li>
             </ul>
-          </div>
+          </aside>
         </div>
       </section>
 
@@ -248,7 +253,7 @@
 
     <footer class="site-footer">
       <div class="footer-brand">
-        <img class="footer-logo" src="logo-codedev.svg" alt="" width="28" height="28" aria-hidden="true">
+        <img class="footer-logo" src="logo-codedev.svg" alt="" width="26" height="26" aria-hidden="true">
         <span>© 2026 CodeDev, LLC · David Engelhart</span>
       </div>
       <nav class="footer-links" aria-label="Footer">

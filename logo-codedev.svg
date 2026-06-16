@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="codedev logo">
   <defs>
-    <linearGradient id="cd-ring" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8b7bff"/>
-      <stop offset="0.55" stop-color="#2dd4e8"/>
-      <stop offset="1" stop-color="#b07cff"/>
+    <linearGradient id="cd-fill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7b5cff"/>
+      <stop offset="0.5" stop-color="#ec4ec4"/>
+      <stop offset="1" stop-color="#2fb6ff"/>
     </linearGradient>
   </defs>
-  <rect x="2.5" y="2.5" width="59" height="59" rx="14" fill="#0c0c17" stroke="url(#cd-ring)" stroke-width="2.6"/>
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.6">
-    <polyline points="25,21 14,32 25,43" stroke="#8b7bff"/>
-    <polyline points="39,21 50,32 39,43" stroke="#2dd4e8"/>
-    <line x1="36" y1="19" x2="28" y2="45" stroke="#b07cff"/>
+  <rect x="3" y="3" width="58" height="58" rx="15" fill="url(#cd-fill)"/>
+  <g fill="none" stroke="#ffffff" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="25,21 14,32 25,43"/>
+    <polyline points="39,21 50,32 39,43"/>
+    <line x1="36" y1="19" x2="28" y2="45"/>
   </g>
 </svg>
