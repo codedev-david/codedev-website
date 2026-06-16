@@ -1,0 +1,27 @@
+name: FTP Debug
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List FTP directories (find the real docroot)
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -uo pipefail
+          ls () {
+            echo "===== LIST: $1 ====="
+            curl -sS --ssl-reqd -k --connect-timeout 30 \
+              --user "$FTP_USERNAME:$FTP_PASSWORD" "ftp://$FTP_HOST/$1" 2>&1 || echo "(could not list)"
+            echo ""
+          }
+          ls ""                          # login home / FTP root for this account
+          ls "codedev.llc/"              # the folder our deploy created
+          ls "public_html/"              # main docroot (if home is the account home)
+          ls "public_html/codedev.llc/"  # typical addon-domain docroot
+          ls "%2F"                       # filesystem-absolute root as the daemon sees it
