@@ -23,9 +23,11 @@ jobs:
       # match FTP_HOST (curl error 60), so strict verification can't pass. The transfer
       # stays TLS-ENCRYPTED; -k only skips server-identity verification.
       #
-      # The codedev@codedev.llc FTP account is scoped (chrooted) to codedev.llc's
-      # document root, so its FTP root IS the web root — we upload tracked web files
-      # straight to "/" (no subfolder). --ftp-create-dirs creates remote dirs as needed.
+      # IMPORTANT: the codedev@codedev.llc FTP account's home is the shared public_html
+      # root (the SAME root that serves termpolis.com). codedev.llc is an addon domain
+      # whose document root is the "codedev.llc/" subfolder inside public_html, so we
+      # MUST upload under that prefix. Do NOT deploy to "/" — that overwrites the live
+      # termpolis.com files. --ftp-create-dirs creates remote dirs as needed.
       # .github/, .gitignore, and README.md aren't web content.
       - name: Deploy to codedev.llc (FTPS via curl, retried)
         env:
@@ -45,12 +47,12 @@ jobs:
             n=$((n+1))
             if curl --ssl-reqd -k -sS --retry 5 --retry-all-errors --connect-timeout 30 \
                  --ftp-create-dirs --user "$FTP_USERNAME:$FTP_PASSWORD" \
-                 -T "$f" "ftp://$FTP_HOST/${f// /%20}"; then # %20-encode spaces in remote path
+                 -T "$f" "ftp://$FTP_HOST/codedev.llc/${f// /%20}"; then # %20-encode spaces in remote path
               ok=$((ok+1))
             else
               echo "  FAILED: $f"; rc=1
             fi
           done <<< "$files"
-          echo "Uploaded $ok/$n files to the codedev.llc web root."
+          echo "Uploaded $ok/$n files to codedev.llc/."
           if [ "$rc" -ne 0 ]; then echo "::error::One or more files failed to upload after retries."; fi
           exit $rc
